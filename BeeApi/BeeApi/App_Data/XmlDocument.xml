@@ -1,0 +1,2677 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BeeApi</name>
+    </assembly>
+    <members>
+        <member name="M:BeeApi.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+            </summary>
+            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The ID as a string.</returns>
+        </member>
+        <member name="T:BeeApi.Areas.HelpPage.HelpPageConfig">
+            <summary>
+            Use this class to customize the Help Page.
+            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> to supply the documentation
+            or you can provide the samples for the requests/responses.
+            </summary>
+        </member>
+        <member name="T:BeeApi.Areas.HelpPage.Controllers.HelpController">
+            <summary>
+            The controller that will handle requests for the help page.
+            </summary>
+        </member>
+        <member name="T:BeeApi.Areas.HelpPage.HelpPageAreaRegistration">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:System.Web.Mvc.AreaRegistration" />
+        </member>
+        <member name="P:BeeApi.Areas.HelpPage.HelpPageAreaRegistration.AreaName">
+            <summary>
+            Gets the name of the area to register.
+            </summary>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageAreaRegistration.RegisterArea(System.Web.Mvc.AreaRegistrationContext)">
+            <summary>
+            Registers an area in an ASP.NET MVC application using the specified area's context information.
+            </summary>
+            <param name="context">Encapsulates the information that is required in order to register the area.</param>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
+            <summary>
+            Sets the documentation provider for help page.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="documentationProvider">The documentation provider.</param>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
+            <summary>
+            Sets the objects that will be used by the formatters to produce sample requests/responses.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleObjects">The sample objects.</param>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type and action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample request directly for the specified media type and action with parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type of the action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample response directly for the specified media type of the action with specific parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForMediaType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Sets the sample directly for all actions with the specified media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Sets the sample directly for all actions with the specified type and media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The parameter type or return type of an action.</param>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <returns>The help page sample generator.</returns>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,BeeApi.Areas.HelpPage.HelpPageSampleGenerator)">
+            <summary>
+            Sets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleGenerator">The help page sample generator.</param>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageConfigurationExtensions.GetModelDescriptionGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the model description generator.
+            </summary>
+            <param name="config">The configuration.</param>
+            <returns>The <see cref="T:BeeApi.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator"/></returns>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription"/> ID.</param>
+            <returns>
+            An <see cref="T:BeeApi.Areas.HelpPage.Models.HelpPageApiModel"/>
+            </returns>
+        </member>
+        <member name="T:BeeApi.Areas.HelpPage.ModelDescriptions.ModelDescription">
+            <summary>
+            Describes a type model.
+            </summary>
+        </member>
+        <member name="T:BeeApi.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator">
+            <summary>
+            Generates model descriptions for given types.
+            </summary>
+        </member>
+        <member name="T:BeeApi.Areas.HelpPage.ModelDescriptions.ModelNameAttribute">
+            <summary>
+            Use this attribute to change the name of the <see cref="T:BeeApi.Areas.HelpPage.ModelDescriptions.ModelDescription"/> generated for a type.
+            </summary>
+        </member>
+        <member name="T:BeeApi.Areas.HelpPage.Models.HelpPageApiModel">
+            <summary>
+            The model that represents an API displayed on the help page.
+            </summary>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BeeApi.Areas.HelpPage.Models.HelpPageApiModel"/> class.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
+            <summary>
+            Gets or sets the <see cref="P:BeeApi.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Areas.HelpPage.Models.HelpPageApiModel.UriParameters">
+            <summary>
+            Gets or sets the <see cref="T:BeeApi.Areas.HelpPage.ModelDescriptions.ParameterDescription"/> collection that describes the URI parameters for the API.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Areas.HelpPage.Models.HelpPageApiModel.RequestDocumentation">
+            <summary>
+            Gets or sets the documentation for the request.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Areas.HelpPage.Models.HelpPageApiModel.RequestModelDescription">
+            <summary>
+            Gets or sets the <see cref="T:BeeApi.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the request body.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Areas.HelpPage.Models.HelpPageApiModel.RequestBodyParameters">
+            <summary>
+            Gets the request body parameter descriptions.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Areas.HelpPage.Models.HelpPageApiModel.ResourceDescription">
+            <summary>
+            Gets or sets the <see cref="T:BeeApi.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the resource.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Areas.HelpPage.Models.HelpPageApiModel.ResourceProperties">
+            <summary>
+            Gets the resource property descriptions.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
+            <summary>
+            Gets the sample requests associated with the API.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Areas.HelpPage.Models.HelpPageApiModel.SampleResponses">
+            <summary>
+            Gets the sample responses associated with the API.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Areas.HelpPage.Models.HelpPageApiModel.ErrorMessages">
+            <summary>
+            Gets the error messages associated with this model.
+            </summary>
+        </member>
+        <member name="T:BeeApi.Areas.HelpPage.HelpPageSampleGenerator">
+            <summary>
+            This class will generate the samples for the help page.
+            </summary>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageSampleGenerator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BeeApi.Areas.HelpPage.HelpPageSampleGenerator"/> class.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories">
+            <summary>
+            Gets factories for the objects that the supported formatters will serialize as samples. Processed in order,
+            stopping when the factory successfully returns a non-<see langref="null"/> object.
+            </summary>
+            <remarks>
+            Collection includes just <see cref="M:BeeApi.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)"/> initially. Use
+            <code>SampleObjectFactories.Insert(0, func)</code> to provide an override and
+            <code>SampleObjectFactories.Add(func)</code> to provide a fallback.</remarks>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,BeeApi.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Gets the request or response body samples.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,BeeApi.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Search for samples that are provided directly through <see cref="P:BeeApi.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples"/>.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="type">The CLR type.</param>
+            <param name="formatter">The formatter.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The sample that matches the parameters.</returns>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageSampleGenerator.GetSampleObject(System.Type)">
+            <summary>
+            Gets the sample object that will be serialized by the formatters. 
+            First, it will look at the <see cref="P:BeeApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create
+            one using <see cref="M:BeeApi.Areas.HelpPage.HelpPageSampleGenerator.DefaultSampleObjectFactory(BeeApi.Areas.HelpPage.HelpPageSampleGenerator,System.Type)"/> (which wraps an <see cref="T:BeeApi.Areas.HelpPage.ObjectGenerator"/>) and other
+            factories in <see cref="P:BeeApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The sample object.</returns>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageSampleGenerator.ResolveHttpRequestMessageType(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Resolves the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The type.</returns>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},BeeApi.Areas.HelpPage.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
+            <summary>
+            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/> is used.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
+            <param name="formatters">The formatters.</param>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageSampleGenerator.WriteSampleObjectUsingFormatter(System.Net.Http.Formatting.MediaTypeFormatter,System.Object,System.Type,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Writes the sample object using formatter.
+            </summary>
+            <param name="formatter">The formatter.</param>
+            <param name="value">The value.</param>
+            <param name="type">The type.</param>
+            <param name="mediaType">Type of the media.</param>
+            <returns></returns>
+        </member>
+        <member name="T:BeeApi.Areas.HelpPage.HelpPageSampleKey">
+            <summary>
+            This is used to identify the place where the sample should be applied.
+            </summary>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Creates a new <see cref="T:BeeApi.Areas.HelpPage.HelpPageSampleKey"/> based on media type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Creates a new <see cref="T:BeeApi.Areas.HelpPage.HelpPageSampleKey"/> based on media type and CLR type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The CLR type.</param>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageSampleKey.#ctor(BeeApi.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:BeeApi.Areas.HelpPage.HelpPageSampleKey"/> based on <see cref="P:BeeApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="sampleDirection">The <see cref="P:BeeApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,BeeApi.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:BeeApi.Areas.HelpPage.HelpPageSampleKey"/> based on media type, <see cref="P:BeeApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The <see cref="P:BeeApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="P:BeeApi.Areas.HelpPage.HelpPageSampleKey.ControllerName">
+            <summary>
+            Gets the name of the controller.
+            </summary>
+            <value>
+            The name of the controller.
+            </value>
+        </member>
+        <member name="P:BeeApi.Areas.HelpPage.HelpPageSampleKey.ActionName">
+            <summary>
+            Gets the name of the action.
+            </summary>
+            <value>
+            The name of the action.
+            </value>
+        </member>
+        <member name="P:BeeApi.Areas.HelpPage.HelpPageSampleKey.MediaType">
+            <summary>
+            Gets the media type.
+            </summary>
+            <value>
+            The media type.
+            </value>
+        </member>
+        <member name="P:BeeApi.Areas.HelpPage.HelpPageSampleKey.ParameterNames">
+            <summary>
+            Gets the parameter names.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection">
+            <summary>
+            Gets the <see cref="P:BeeApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.
+            </summary>
+        </member>
+        <member name="T:BeeApi.Areas.HelpPage.ImageSample">
+            <summary>
+            This represents an image sample on the help page. There's a display template named ImageSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.ImageSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BeeApi.Areas.HelpPage.ImageSample"/> class.
+            </summary>
+            <param name="src">The URL of an image.</param>
+        </member>
+        <member name="T:BeeApi.Areas.HelpPage.InvalidSample">
+            <summary>
+            This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:BeeApi.Areas.HelpPage.ObjectGenerator">
+            <summary>
+            This class will create an object of a given type and populate it with sample data.
+            </summary>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)">
+            <summary>
+            Generates an object for a given type. The type needs to be public, have a public default constructor and settable public properties/fields. Currently it supports the following types:
+            Simple types: <see cref="T:System.Int32"/>, <see cref="T:System.String"/>, <see cref="T:System.Enum"/>, <see cref="T:System.DateTime"/>, <see cref="T:System.Uri"/>, etc.
+            Complex types: POCO types.
+            Nullables: <see cref="T:System.Nullable`1"/>.
+            Arrays: arrays of simple types or complex types.
+            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
+            Tuples: <see cref="T:System.Tuple`1"/>, <see cref="T:System.Tuple`2"/>, etc
+            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2"/> or anything deriving from <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            Collections: <see cref="T:System.Collections.Generic.IList`1"/>, <see cref="T:System.Collections.Generic.IEnumerable`1"/>, <see cref="T:System.Collections.Generic.ICollection`1"/>, <see cref="T:System.Collections.IList"/>, <see cref="T:System.Collections.IEnumerable"/>, <see cref="T:System.Collections.ICollection"/> or anything deriving from <see cref="T:System.Collections.Generic.ICollection`1"/> or <see cref="T:System.Collections.IList"/>.
+            Queryables: <see cref="T:System.Linq.IQueryable"/>, <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>An object of the given type.</returns>
+        </member>
+        <member name="T:BeeApi.Areas.HelpPage.SampleDirection">
+            <summary>
+            Indicates whether the sample is used for request or response
+            </summary>
+        </member>
+        <member name="T:BeeApi.Areas.HelpPage.TextSample">
+            <summary>
+            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:BeeApi.Areas.HelpPage.XmlDocumentationProvider">
+            <summary>
+            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
+            </summary>
+        </member>
+        <member name="M:BeeApi.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BeeApi.Areas.HelpPage.XmlDocumentationProvider"/> class.
+            </summary>
+            <param name="documentPath">The physical path to XML document.</param>
+        </member>
+        <member name="T:BeeApi.Contexts.BeeAppContext">
+            <summary>
+            Represents a context for manipulating Bee App data.
+            </summary>
+            <seealso cref="T:System.Data.Entity.DbContext" />
+        </member>
+        <member name="M:BeeApi.Contexts.BeeAppContext.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BeeApi.Contexts.BeeAppContext"/> class.
+            </summary>
+        </member>
+        <member name="M:BeeApi.Contexts.BeeAppContext.OnModelCreating(System.Data.Entity.DbModelBuilder)">
+            <summary>
+            Maps table names, and sets up relationships between the various user entities
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="M:BeeApi.Contexts.BeeAppContext.Create">
+            <summary>
+            Creates this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BeeApi.Contexts.BeeAppUserContext">
+            <summary>
+            Represents a context for manipulating ASP.NET Identity users.
+            </summary>
+            <seealso />
+        </member>
+        <member name="M:BeeApi.Contexts.BeeAppUserContext.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BeeApi.Contexts.BeeAppUserContext"/> class.
+            </summary>
+        </member>
+        <member name="M:BeeApi.Contexts.BeeAppUserContext.Create">
+            <summary>
+            Creates this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BeeApi.Controllers.BeekeepersController">
+            <summary>
+            Represents a Beekeeper controller.
+            </summary>
+            <seealso cref="T:BeeApi.Controllers.BaseApiController" />
+        </member>
+        <member name="M:BeeApi.Controllers.BeekeepersController.Post(BeeApi.Models.BeekeeperModel)">
+            <summary>
+            Creates the user.
+            </summary>
+            <param name="beekeeperModel">The create beekeeper model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.BeekeepersController.UpdateInfo(BeeApi.Models.BeekeeperUpdateInfo)">
+            <summary>
+            Updates the information.
+            </summary>
+            <param name="beekeeperUpdateInfo">The beekeeper update information.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.BeekeepersController.PutNewPassword(BeeApi.Models.BeekeeperChangePasswordModel)">
+            <summary>
+            Puts the new password.
+            </summary>
+            <param name="beekeeperChangePasswordModel">The change password model.</param>
+            <returns></returns>
+        </member>
+        <member name="T:BeeApi.Controllers.BaseApiController">
+            <summary>
+            Represents base API controller.
+            </summary>
+            <seealso cref="T:System.Web.Http.ApiController" />
+        </member>
+        <member name="P:BeeApi.Controllers.BaseApiController.UserManager">
+            <summary>
+            Gets the user manager.
+            </summary>
+            <value>
+            The user manager.
+            </value>
+        </member>
+        <member name="M:BeeApi.Controllers.BaseApiController.GetErrorResult(Microsoft.AspNet.Identity.IdentityResult)">
+            <summary>
+            Gets the error result.
+            </summary>
+            <param name="result">The result.</param>
+            <returns></returns>
+        </member>
+        <member name="T:BeeApi.Controllers.ApiariesController">
+            <summary>
+            Represents a Apiaries controller.
+            </summary>
+            <seealso cref="T:BeeApi.Controllers.BaseApiController" />
+        </member>
+        <member name="M:BeeApi.Controllers.ApiariesController.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BeeApi.Controllers.ApiariesController"/> class.
+            </summary>
+        </member>
+        <member name="M:BeeApi.Controllers.ApiariesController.Post(BeeApi.Models.ApiaryModel)">
+            <summary>
+            Posts the specified create apiary model.
+            </summary>
+            <param name="apiaryModel">The apiary model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.ApiariesController.Get">
+            <summary>
+            Gets all apiaries of the owner.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.ApiariesController.Get(System.Int32)">
+            <summary>
+            Gets the specified apiary.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.ApiariesController.Put(System.Int32,BeeApi.Models.ApiaryModel)">
+            <summary>
+            Puts the specified apiary identifier.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <param name="apiaryModel">The apiary model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.ApiariesController.Delete(System.Int32)">
+            <summary>
+            Deletes the specified apiary identifier.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="T:BeeApi.Controllers.TreatmentsController">
+            <summary>
+            Represents a Treatments Controller.
+            </summary>
+            <seealso cref="T:BeeApi.Controllers.BaseApiController" />
+        </member>
+        <member name="M:BeeApi.Controllers.TreatmentsController.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BeeApi.Controllers.TreatmentsController"/> class.
+            </summary>
+        </member>
+        <member name="M:BeeApi.Controllers.TreatmentsController.Post(System.Int32,System.Int32,BeeApi.Models.TreatmentModel)">
+            <summary>
+            Posts the specified apiary identifier.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <param name="hiveId">The hive identifier.</param>
+            <param name="treatmentModel">The treatment model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.TreatmentsController.Get(System.Int32,System.Int32)">
+            <summary>
+            Gets the specified apiary identifier.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <param name="hiveId">The hive identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.TreatmentsController.Get(System.Int32)">
+            <summary>
+            Gets the specified apiary identifier.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.TreatmentsController.Get(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Gets the specified apiary identifier.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <param name="hiveId">The hive identifier.</param>
+            <param name="treatmentId">The treatment identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.TreatmentsController.Put(System.Int32,BeeApi.Models.TreatmentModel)">
+            <summary>
+            Puts the specified treatment identifier.
+            </summary>
+            <param name="treatmentId">The treatment identifier.</param>
+            <param name="treatmentModel">The treatment model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.TreatmentsController.Delete(System.Int32)">
+            <summary>
+            Deletes the specified treatment identifier.
+            </summary>
+            <param name="treatmentId">The treatment identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="T:BeeApi.Controllers.FeedingsController">
+            <summary>
+            Represents a Feedings Controller.
+            </summary>
+            <seealso cref="T:BeeApi.Controllers.BaseApiController" />
+        </member>
+        <member name="M:BeeApi.Controllers.FeedingsController.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BeeApi.Controllers.FeedingsController"/> class.
+            </summary>
+        </member>
+        <member name="M:BeeApi.Controllers.FeedingsController.Post(System.Int32,System.Int32,BeeApi.Models.FeedingModel)">
+            <summary>
+            Posts the specified apiary identifier.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <param name="hiveId">The hive identifier.</param>
+            <param name="feedingModel">The feeding model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.FeedingsController.Get(System.Int32,System.Int32)">
+            <summary>
+            Gets the specified apiary identifier.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <param name="hiveId">The hive identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.FeedingsController.Get(System.Int32)">
+            <summary>
+            Gets the specified apiary identifier.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.FeedingsController.Get(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Gets the specified apiary identifier.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <param name="hiveId">The hive identifier.</param>
+            <param name="feedingId">The feeding identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.FeedingsController.Put(System.Int32,BeeApi.Models.FeedingModel)">
+            <summary>
+            Puts the specified feeding identifier.
+            </summary>
+            <param name="feedingId">The feeding identifier.</param>
+            <param name="feedingModel">The feeding model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.FeedingsController.Delete(System.Int32)">
+            <summary>
+            Deletes the specified feeding identifier.
+            </summary>
+            <param name="feedingId">The feeding identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="T:BeeApi.Controllers.HivesController">
+            <summary>
+            Represents a Hives controller.
+            </summary>
+            <seealso cref="T:BeeApi.Controllers.BaseApiController" />
+        </member>
+        <member name="M:BeeApi.Controllers.HivesController.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BeeApi.Controllers.HivesController"/> class.
+            </summary>
+        </member>
+        <member name="M:BeeApi.Controllers.HivesController.Post(System.Int32,BeeApi.Models.HiveModel)">
+            <summary>
+            Posts the specified apiary identifier.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <param name="hiveModel">The create hive model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.HivesController.Get(System.Int32)">
+            <summary>
+            Gets this instance.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.HivesController.Get(System.Int32,System.Int32)">
+            <summary>
+            Gets the specified hive identifier.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <param name="hiveId">The hive identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.HivesController.Put(System.Int32,BeeApi.Models.HiveModel)">
+            <summary>
+            Puts the specified hive identifier.
+            </summary>
+            <param name="hiveId">The hive identifier.</param>
+            <param name="hiveModel">The hive model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.HivesController.Delete(System.Int32)">
+            <summary>
+            Deletes the specified hive identifier.
+            </summary>
+            <param name="hiveId">The hive identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.HivesController.EnsureCreatingInOwnApiary(BeeApi.Contexts.BeeAppContext,System.Int32)">
+            <summary>
+            Ensures the creating in own apiary.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="apiaryId">The apiary identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="T:BeeApi.Controllers.HarvestsController">
+            <summary>
+            Represents a Harvests Controller.
+            </summary>
+            <seealso cref="T:BeeApi.Controllers.BaseApiController" />
+        </member>
+        <member name="M:BeeApi.Controllers.HarvestsController.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BeeApi.Controllers.HarvestsController"/> class.
+            </summary>
+        </member>
+        <member name="M:BeeApi.Controllers.HarvestsController.Post(System.Int32,System.Int32,BeeApi.Models.HarvestModel)">
+            <summary>
+            Posts the specified apiary identifier.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <param name="hiveId">The hive identifier.</param>
+            <param name="harvestModel">The harvest model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.HarvestsController.Get(System.Int32,System.Int32)">
+            <summary>
+            Gets the specified apiary identifier.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <param name="hiveId">The hive identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.HarvestsController.Get(System.Int32)">
+            <summary>
+            Gets the specified apiary identifier.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.HarvestsController.Get(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Gets the specified apiary identifier.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <param name="hiveId">The hive identifier.</param>
+            <param name="harvestId">The harvest identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.HarvestsController.Put(System.Int32,BeeApi.Models.HarvestModel)">
+            <summary>
+            Puts the specified harvest identifier.
+            </summary>
+            <param name="harvestId">The harvest identifier.</param>
+            <param name="harvestModel">The harvest model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.HarvestsController.Delete(System.Int32)">
+            <summary>
+            Deletes the specified harvest identifier.
+            </summary>
+            <param name="harvestId">The harvest identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="T:BeeApi.Controllers.InspectionsController">
+            <summary>
+            Represents an Inspection controller.
+            </summary>
+            <seealso cref="T:BeeApi.Controllers.BaseApiController" />
+        </member>
+        <member name="M:BeeApi.Controllers.InspectionsController.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BeeApi.Controllers.InspectionsController"/> class.
+            </summary>
+        </member>
+        <member name="M:BeeApi.Controllers.InspectionsController.Post(System.Int32,System.Int32,BeeApi.Models.InspectionModel)">
+            <summary>
+            Posts the specified apiary identifier.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <param name="hiveId">The hive identifier.</param>
+            <param name="inspectionModel">The inspection model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.InspectionsController.Get(System.Int32,System.Int32)">
+            <summary>
+            Gets the specified apiary identifier.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <param name="hiveId">The hive identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.InspectionsController.Get(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Gets the specified apiary identifier.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <param name="hiveId">The hive identifier.</param>
+            <param name="inspectionId">The inspection identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.InspectionsController.Put(System.Int32,BeeApi.Models.InspectionModel)">
+            <summary>
+            Puts the specified inspection identifier.
+            </summary>
+            <param name="inspectionId">The inspection identifier.</param>
+            <param name="inspectionModel">The inspection model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.InspectionsController.Delete(System.Int32)">
+            <summary>
+            Deletes the specified inspection identifier.
+            </summary>
+            <param name="inspectionId">The inspection identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="T:BeeApi.Controllers.MonitoringController">
+            <summary>
+            Represents a Monitoring Controller.
+            </summary>
+            <seealso cref="T:BeeApi.Controllers.BaseApiController" />
+        </member>
+        <member name="M:BeeApi.Controllers.MonitoringController.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BeeApi.Controllers.MonitoringController"/> class.
+            </summary>
+        </member>
+        <member name="M:BeeApi.Controllers.MonitoringController.Get(System.Int32)">
+            <summary>
+            Gets the specified hive identifier.
+            </summary>
+            <param name="hiveId">The hive identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="T:BeeApi.Controllers.QueensController">
+            <summary>
+            Represents a Queens controller.
+            </summary>
+            <seealso cref="T:BeeApi.Controllers.BaseApiController" />
+        </member>
+        <member name="M:BeeApi.Controllers.QueensController.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BeeApi.Controllers.QueensController" /> class.
+            </summary>
+        </member>
+        <member name="M:BeeApi.Controllers.QueensController.Post(System.Int32,System.Int32,BeeApi.Models.QueenModel)">
+            <summary>
+            Posts the specified apiary identifier.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <param name="hiveId">The hive identifier.</param>
+            <param name="queenModel">The queen model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.QueensController.Get(System.Int32,System.Int32)">
+            <summary>
+            Gets this instance.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <param name="hiveId">The hive identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.QueensController.Get(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Gets this instance.
+            </summary>
+            <param name="apiaryId">The apiary identifier.</param>
+            <param name="hiveId">The hive identifier.</param>
+            <param name="queenId">The queen identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.QueensController.Put(System.Int32,BeeApi.Models.QueenModel)">
+            <summary>
+            Puts the specified queen identifier.
+            </summary>
+            <param name="queenId">The queen identifier.</param>
+            <param name="queenModel">The queen model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.QueensController.Delete(System.Int32)">
+            <summary>
+            Deletes the specified queen identifier.
+            </summary>
+            <param name="queenId">The queen identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="T:BeeApi.Controllers.WorksController">
+            <summary>
+            Represents a Works controller.
+            </summary>
+            <seealso cref="T:BeeApi.Controllers.BaseApiController" />
+        </member>
+        <member name="M:BeeApi.Controllers.WorksController.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BeeApi.Controllers.WorksController"/> class.
+            </summary>
+        </member>
+        <member name="M:BeeApi.Controllers.WorksController.Post(BeeApi.Models.WorkModel)">
+            <summary>
+            Posts the specified create work model.
+            </summary>
+            <param name="workModel">The work model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.WorksController.Get">
+            <summary>
+            Gets all works.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.WorksController.Get(System.Int32)">
+            <summary>
+            Gets the specified work.
+            </summary>
+            <param name="workId">The work identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.WorksController.Put(System.Int32,BeeApi.Models.WorkModel)">
+            <summary>
+            Puts the specified work identifier.
+            </summary>
+            <param name="workId">The work identifier.</param>
+            <param name="workModel">The work model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Controllers.WorksController.Delete(System.Int32)">
+            <summary>
+            Deletes the specified work identifier.
+            </summary>
+            <param name="workId">The work identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="T:BeeApi.Ensurer">
+            <summary>
+            Represents an Ensurer helper class.
+            </summary>
+        </member>
+        <member name="M:BeeApi.Ensurer.EnsureHiveBelongsToApiary(BeeApi.Contexts.BeeAppContext,System.Int32,System.Int32,System.String)">
+            <summary>
+            Ensures the hive belongs to apiary.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="apiaryId">The apiary identifier.</param>
+            <param name="hiveId">The hive identifier.</param>
+            <param name="userId">The user identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BeeApi.Ensurer.EnsureEmailIsUnique(System.Web.Http.ModelBinding.ModelStateDictionary,BeeApi.Identity.UserManager,System.String)">
+            <summary>
+            Ensures the email is unique.
+            </summary>
+            <param name="modelState">State of the model.</param>
+            <param name="userManager">The user manager.</param>
+            <param name="email">The email.</param>
+            <returns></returns>
+        </member>
+        <member name="T:BeeApi.Entities.Apiary">
+            <summary>
+            Represents An Apiary.
+            </summary>
+        </member>
+        <member name="M:BeeApi.Entities.Apiary.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BeeApi.Entities.Apiary"/> class.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Entities.Apiary.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Apiary.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Apiary.Place">
+            <summary>
+            Gets or sets the place.
+            </summary>
+            <value>
+            The place.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Apiary.Longtitude">
+            <summary>
+            Gets or sets the longtitude.
+            </summary>
+            <value>
+            The longtitude.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Apiary.Latitude">
+            <summary>
+            Gets or sets the latitude.
+            </summary>
+            <value>
+            The latitude.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Apiary.BeekeeperId">
+            <summary>
+            Gets or sets the beekeeper identifier.
+            </summary>
+            <value>
+            The beekeeper identifier.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Apiary.Beekeeper">
+            <summary>
+            Gets or sets the beekeeper.
+            </summary>
+            <value>
+            The beekeeper.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Apiary.Hives">
+            <summary>
+            Gets or sets the hives.
+            </summary>
+            <value>
+            The hives.
+            </value>
+        </member>
+        <member name="T:BeeApi.Entities.ApplicationUser">
+            <summary>
+            Represents an Application User.
+            </summary>
+            <seealso cref="T:Microsoft.AspNet.Identity.EntityFramework.IdentityUser" />
+        </member>
+        <member name="P:BeeApi.Entities.ApplicationUser.FirstName">
+            <summary>
+            Gets or sets the first name.
+            </summary>
+            <value>
+            The first name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.ApplicationUser.LastName">
+            <summary>
+            Gets or sets the last name.
+            </summary>
+            <value>
+            The last name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.ApplicationUser.Email">
+            <summary>
+            Gets or sets the email address.
+            </summary>
+            <value>
+            The email address.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.ApplicationUser.PhoneNumber">
+            <summary>
+            PhoneNumber for the user
+            </summary>
+        </member>
+        <member name="P:BeeApi.Entities.ApplicationUser.Number">
+            <summary>
+            Gets or sets the number.
+            </summary>
+            <value>
+            The number.
+            </value>
+        </member>
+        <member name="T:BeeApi.Entities.Beekeeper">
+            <summary>
+            Represents a Beekeeper.
+            </summary>
+            <seealso cref="T:Microsoft.AspNet.Identity.EntityFramework.IdentityUser" />
+        </member>
+        <member name="M:BeeApi.Entities.Beekeeper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BeeApi.Entities.Beekeeper"/> class.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Entities.Beekeeper.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Beekeeper.FirstName">
+            <summary>
+            Gets or sets the first name.
+            </summary>
+            <value>
+            The first name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Beekeeper.LastName">
+            <summary>
+            Gets or sets the last name.
+            </summary>
+            <value>
+            The last name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Beekeeper.Email">
+            <summary>
+            Gets or sets the email address.
+            </summary>
+            <value>
+            The email address.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Beekeeper.PhoneNumber">
+            <summary>
+            PhoneNumber for the user
+            </summary>
+        </member>
+        <member name="P:BeeApi.Entities.Beekeeper.Number">
+            <summary>
+            Gets or sets the number.
+            </summary>
+            <value>
+            The number.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Beekeeper.ApplicationUserId">
+            <summary>
+            Gets or sets the application user identifier.
+            </summary>
+            <value>
+            The application user identifier.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Beekeeper.Works">
+            <summary>
+            Gets or sets the works.
+            </summary>
+            <value>
+            The works.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Beekeeper.Apiaries">
+            <summary>
+            Gets or sets the apiaries.
+            </summary>
+            <value>
+            The apiaries.
+            </value>
+        </member>
+        <member name="T:BeeApi.Entities.Feeding">
+            <summary>
+            Represents a Feeding.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Entities.Feeding.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Feeding.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Feeding.Date">
+            <summary>
+            Gets or sets the date.
+            </summary>
+            <value>
+            The date.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Feeding.Product">
+            <summary>
+            Gets or sets the product.
+            </summary>
+            <value>
+            The product.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Feeding.Quantity">
+            <summary>
+            Gets or sets the quantity.
+            </summary>
+            <value>
+            The quantity.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Feeding.Unit">
+            <summary>
+            Gets or sets the unit.
+            </summary>
+            <value>
+            The unit.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Feeding.Note">
+            <summary>
+            Gets or sets the note.
+            </summary>
+            <value>
+            The note.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Feeding.HiveId">
+            <summary>
+            Gets or sets the hive identifier.
+            </summary>
+            <value>
+            The hive identifier.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Feeding.Hive">
+            <summary>
+            Gets or sets the hive.
+            </summary>
+            <value>
+            The hive.
+            </value>
+        </member>
+        <member name="T:BeeApi.Entities.Treatment">
+            <summary>
+            Represents a Treatment.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Entities.Treatment.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Treatment.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Treatment.Date">
+            <summary>
+            Gets or sets the date.
+            </summary>
+            <value>
+            The date.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Treatment.Product">
+            <summary>
+            Gets or sets the product.
+            </summary>
+            <value>
+            The product.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Treatment.Quantity">
+            <summary>
+            Gets or sets the quantity.
+            </summary>
+            <value>
+            The quantity.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Treatment.Unit">
+            <summary>
+            Gets or sets the unit.
+            </summary>
+            <value>
+            The unit.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Treatment.Note">
+            <summary>
+            Gets or sets the note.
+            </summary>
+            <value>
+            The note.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Treatment.HiveId">
+            <summary>
+            Gets or sets the hive identifier.
+            </summary>
+            <value>
+            The hive identifier.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Treatment.Hive">
+            <summary>
+            Gets or sets the hive.
+            </summary>
+            <value>
+            The hive.
+            </value>
+        </member>
+        <member name="T:BeeApi.Entities.Harvest">
+            <summary>
+            Represents a Harvest.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Entities.Harvest.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Harvest.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Harvest.Date">
+            <summary>
+            Gets or sets the date.
+            </summary>
+            <value>
+            The date.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Harvest.Product">
+            <summary>
+            Gets or sets the product.
+            </summary>
+            <value>
+            The product.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Harvest.Quantity">
+            <summary>
+            Gets or sets the quantity.
+            </summary>
+            <value>
+            The quantity.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Harvest.Unit">
+            <summary>
+            Gets or sets the unit.
+            </summary>
+            <value>
+            The unit.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Harvest.Note">
+            <summary>
+            Gets or sets the note.
+            </summary>
+            <value>
+            The note.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Harvest.HiveId">
+            <summary>
+            Gets or sets the hive identifier.
+            </summary>
+            <value>
+            The hive identifier.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Harvest.Hive">
+            <summary>
+            Gets or sets the hive.
+            </summary>
+            <value>
+            The hive.
+            </value>
+        </member>
+        <member name="T:BeeApi.Entities.Hive">
+            <summary>
+            Represents a Hive.
+            </summary>
+        </member>
+        <member name="M:BeeApi.Entities.Hive.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BeeApi.Entities.Hive"/> class.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Entities.Hive.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Hive.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Hive.Date">
+            <summary>
+            Gets or sets the date.
+            </summary>
+            <value>
+            The date.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Hive.Status">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:BeeApi.Entities.Hive"/> is status.
+            </summary>
+            <value>
+              <c>true</c> if status; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Hive.Type">
+            <summary>
+            Gets or sets the type.
+            </summary>
+            <value>
+            The type.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Hive.Note">
+            <summary>
+            Gets or sets the note.
+            </summary>
+            <value>
+            The note.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Hive.Family">
+            <summary>
+            Gets or sets the family.
+            </summary>
+            <value>
+            The family.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Hive.FamilyOrigin">
+            <summary>
+            Gets or sets the family origin.
+            </summary>
+            <value>
+            The family origin.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Hive.ApiaryId">
+            <summary>
+            Gets or sets the apiary identifier.
+            </summary>
+            <value>
+            The apiary identifier.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Hive.Apiary">
+            <summary>
+            Gets or sets the apiary.
+            </summary>
+            <value>
+            The apiary.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Hive.Monitoring">
+            <summary>
+            Gets or sets the monitoring.
+            </summary>
+            <value>
+            The monitoring.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Hive.Queens">
+            <summary>
+            Gets or sets the queens.
+            </summary>
+            <value>
+            The queens.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Hive.Inspections">
+            <summary>
+            Gets or sets the inspections.
+            </summary>
+            <value>
+            The inspections.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Hive.Harvests">
+            <summary>
+            Gets or sets the harvests.
+            </summary>
+            <value>
+            The harvests.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Hive.Feedings">
+            <summary>
+            Gets or sets the feedings.
+            </summary>
+            <value>
+            The feedings.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Hive.Treatments">
+            <summary>
+            Gets or sets the treatments.
+            </summary>
+            <value>
+            The treatments.
+            </value>
+        </member>
+        <member name="T:BeeApi.Entities.Inspection">
+            <summary>
+            Represents an Inspection.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Entities.Inspection.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Inspection.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Inspection.Date">
+            <summary>
+            Gets or sets the date.
+            </summary>
+            <value>
+            The date.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Inspection.Strength">
+            <summary>
+            Gets or sets the strength.
+            </summary>
+            <value>
+            The strength.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Inspection.Temper">
+            <summary>
+            Gets or sets the temper.
+            </summary>
+            <value>
+            The temper.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Inspection.Disease">
+            <summary>
+            Gets or sets the disease.
+            </summary>
+            <value>
+            The disease.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Inspection.FramesBees">
+            <summary>
+            Gets or sets the frames bees.
+            </summary>
+            <value>
+            The frames bees.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Inspection.FramesHoney">
+            <summary>
+            Gets or sets the frames honey.
+            </summary>
+            <value>
+            The frames honey.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Inspection.FramesHoneySupers">
+            <summary>
+            Gets or sets the frames honey supers.
+            </summary>
+            <value>
+            The frames honey supers.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Inspection.Drones">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:BeeApi.Entities.Inspection"/> is drones.
+            </summary>
+            <value>
+              <c>true</c> if drones; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Inspection.DroneCells">
+            <summary>
+            Gets or sets a value indicating whether [drone cells].
+            </summary>
+            <value>
+              <c>true</c> if [drone cells]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Inspection.HiveId">
+            <summary>
+            Gets or sets the hive identifier.
+            </summary>
+            <value>
+            The hive identifier.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Inspection.Hive">
+            <summary>
+            Gets or sets the hive.
+            </summary>
+            <value>
+            The hive.
+            </value>
+        </member>
+        <member name="T:BeeApi.Entities.Monitoring">
+            <summary>
+            Represents a Monitoring.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Entities.Monitoring.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Monitoring.Timestamp">
+            <summary>
+            Gets or sets the timestamp.
+            </summary>
+            <value>
+            The timestamp.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Monitoring.Temperature">
+            <summary>
+            Gets or sets the temperature.
+            </summary>
+            <value>
+            The temperature.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Monitoring.Humidity">
+            <summary>
+            Gets or sets the humidity.
+            </summary>
+            <value>
+            The humidity.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Monitoring.Longtitude">
+            <summary>
+            Gets or sets the longtitude.
+            </summary>
+            <value>
+            The longtitude.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Monitoring.Latitude">
+            <summary>
+            Gets or sets the latitude.
+            </summary>
+            <value>
+            The latitude.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Monitoring.HiveId">
+            <summary>
+            Gets or sets the hive identifier.
+            </summary>
+            <value>
+            The hive identifier.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Monitoring.Hive">
+            <summary>
+            Gets or sets the hive.
+            </summary>
+            <value>
+            The hive.
+            </value>
+        </member>
+        <member name="T:BeeApi.Entities.Queen">
+            <summary>
+            Represents a Queen.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Entities.Queen.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Queen.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Queen.Date">
+            <summary>
+            Gets or sets the date.
+            </summary>
+            <value>
+            The date.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Queen.Breed">
+            <summary>
+            Gets or sets the breed.
+            </summary>
+            <value>
+            The breed.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Queen.Colour">
+            <summary>
+            Gets or sets the colour.
+            </summary>
+            <value>
+            The colour.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Queen.State">
+            <summary>
+            Gets or sets the state.
+            </summary>
+            <value>
+            The state.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Queen.Status">
+            <summary>
+            Gets or sets the status.
+            </summary>
+            <value>
+            The status.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Queen.HiveId">
+            <summary>
+            Gets or sets the hive identifier.
+            </summary>
+            <value>
+            The hive identifier.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Queen.Hive">
+            <summary>
+            Gets or sets the hive.
+            </summary>
+            <value>
+            The hive.
+            </value>
+        </member>
+        <member name="T:BeeApi.Entities.Work">
+            <summary>
+            Represents a Work.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Entities.Work.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Work.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Work.Date">
+            <summary>
+            Gets or sets the date.
+            </summary>
+            <value>
+            The date.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Work.Note">
+            <summary>
+            Gets or sets the note.
+            </summary>
+            <value>
+            The note.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Work.IsCompleted">
+            <summary>
+            Gets or sets a value indicating whether this instance is completed.
+            </summary>
+            <value>
+              <c>true</c> if this instance is completed; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Work.BeekeeperId">
+            <summary>
+            Gets or sets the beekeeper.
+            </summary>
+            <value>
+            The beekeeper.
+            </value>
+        </member>
+        <member name="P:BeeApi.Entities.Work.Beekeeper">
+            <summary>
+            Gets or sets the beekeeper.
+            </summary>
+            <value>
+            The beekeeper.
+            </value>
+        </member>
+        <member name="T:BeeApi.Global">
+            <summary>
+            Represents a Global Asax.
+            </summary>
+            <seealso cref="T:System.Web.HttpApplication" />
+        </member>
+        <member name="M:BeeApi.Global.Application_Start(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Start event of the Application control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BeeApi.Global.Session_Start(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Start event of the Session control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BeeApi.Global.Application_BeginRequest(System.Object,System.EventArgs)">
+            <summary>
+            Handles the BeginRequest event of the Application control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BeeApi.Global.Application_AuthenticateRequest(System.Object,System.EventArgs)">
+            <summary>
+            Handles the AuthenticateRequest event of the Application control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BeeApi.Global.Application_Error(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Error event of the Application control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BeeApi.Global.Session_End(System.Object,System.EventArgs)">
+            <summary>
+            Handles the End event of the Session control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BeeApi.Global.Application_End(System.Object,System.EventArgs)">
+            <summary>
+            Handles the End event of the Application control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BeeApi.Identity.UserIdentityGenerator.GenerateUserIdentityAsync(BeeApi.Entities.ApplicationUser,Microsoft.AspNet.Identity.UserManager{BeeApi.Entities.ApplicationUser},System.String)">
+            <summary>
+            Generates the user identity asynchronous.
+            </summary>
+            <param name="user">The user.</param>
+            <param name="manager">The manager.</param>
+            <param name="authenticationType">Type of the authentication.</param>
+            <returns></returns>
+        </member>
+        <member name="T:BeeApi.Identity.UserManager">
+            <summary>
+            Represents an User Manager class.
+            </summary>
+            <seealso />
+        </member>
+        <member name="M:BeeApi.Identity.UserManager.#ctor(Microsoft.AspNet.Identity.IUserStore{BeeApi.Entities.ApplicationUser})">
+            <summary>
+            Initializes a new instance of the <see cref="T:BeeApi.Identity.UserManager"/> class.
+            </summary>
+            <param name="store"></param>
+        </member>
+        <member name="M:BeeApi.Identity.UserManager.Create(Microsoft.AspNet.Identity.Owin.IdentityFactoryOptions{BeeApi.Identity.UserManager},Microsoft.Owin.IOwinContext)">
+            <summary>
+            Creates the specified options.
+            </summary>
+            <param name="options">The options.</param>
+            <param name="context">The context.</param>
+            <returns></returns>
+        </member>
+        <member name="T:BeeApi.Models.ApiaryModel">
+            <summary>
+            Represent an Apiary Model.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Models.ApiaryModel.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.ApiaryModel.Place">
+            <summary>
+            Gets or sets the place.
+            </summary>
+            <value>
+            The place.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.ApiaryModel.Longtitude">
+            <summary>
+            Gets or sets the longtitude.
+            </summary>
+            <value>
+            The longtitude.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.ApiaryModel.Latitude">
+            <summary>
+            Gets or sets the latitude.
+            </summary>
+            <value>
+            The latitude.
+            </value>
+        </member>
+        <member name="T:BeeApi.Models.BeekeeperModel">
+            <summary>
+            Represents a model for creating beekeeper.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Models.BeekeeperModel.FirstName">
+            <summary>
+            Gets or sets the first name.
+            </summary>
+            <value>
+            The first name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.BeekeeperModel.LastName">
+            <summary>
+            Gets or sets the last name.
+            </summary>
+            <value>
+            The last name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.BeekeeperModel.Email">
+            <summary>
+            Gets or sets the email.
+            </summary>
+            <value>
+            The email.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.BeekeeperModel.Phone">
+            <summary>
+            Gets or sets the phone.
+            </summary>
+            <value>
+            The phone.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.BeekeeperModel.Number">
+            <summary>
+            Gets or sets the number.
+            </summary>
+            <value>
+            The number.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.BeekeeperModel.Password">
+            <summary>
+            Gets or sets the password.
+            </summary>
+            <value>
+            The password.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.BeekeeperModel.ConfirmPassword">
+            <summary>
+            Gets or sets the confirm password.
+            </summary>
+            <value>
+            The confirm password.
+            </value>
+        </member>
+        <member name="T:BeeApi.Models.BeekeeperChangePasswordModel">
+            <summary>
+            Represents a Beekeeper Change Password Model.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Models.BeekeeperChangePasswordModel.OldPassword">
+            <summary>
+            Gets or sets the old password.
+            </summary>
+            <value>
+            The old password.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.BeekeeperChangePasswordModel.NewPassword">
+            <summary>
+            Gets or sets the new password.
+            </summary>
+            <value>
+            The new password.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.BeekeeperChangePasswordModel.ConfirmNewPassword">
+            <summary>
+            Gets or sets the confirm new password.
+            </summary>
+            <value>
+            The confirm new password.
+            </value>
+        </member>
+        <member name="T:BeeApi.Models.BeekeeperUpdateInfo">
+            <summary>
+            Represents a Beekeeper Update Info.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Models.BeekeeperUpdateInfo.FirstName">
+            <summary>
+            Gets or sets the first name.
+            </summary>
+            <value>
+            The first name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.BeekeeperUpdateInfo.LastName">
+            <summary>
+            Gets or sets the last name.
+            </summary>
+            <value>
+            The last name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.BeekeeperUpdateInfo.Phone">
+            <summary>
+            Gets or sets the phone.
+            </summary>
+            <value>
+            The phone.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.BeekeeperUpdateInfo.Number">
+            <summary>
+            Gets or sets the number.
+            </summary>
+            <value>
+            The number.
+            </value>
+        </member>
+        <member name="T:BeeApi.Models.TreatmentModel">
+            <summary>
+            Represents a Treatment Model.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Models.TreatmentModel.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.TreatmentModel.Date">
+            <summary>
+            Gets or sets the date.
+            </summary>
+            <value>
+            The date.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.TreatmentModel.Product">
+            <summary>
+            Gets or sets the product.
+            </summary>
+            <value>
+            The product.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.TreatmentModel.Quantity">
+            <summary>
+            Gets or sets the quantity.
+            </summary>
+            <value>
+            The quantity.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.TreatmentModel.Unit">
+            <summary>
+            Gets or sets the unit.
+            </summary>
+            <value>
+            The unit.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.TreatmentModel.Note">
+            <summary>
+            Gets or sets the note.
+            </summary>
+            <value>
+            The note.
+            </value>
+        </member>
+        <member name="T:BeeApi.Models.FeedingModel">
+            <summary>
+            Represents a Feeding Model.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Models.FeedingModel.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.FeedingModel.Date">
+            <summary>
+            Gets or sets the date.
+            </summary>
+            <value>
+            The date.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.FeedingModel.Product">
+            <summary>
+            Gets or sets the product.
+            </summary>
+            <value>
+            The product.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.FeedingModel.Quantity">
+            <summary>
+            Gets or sets the quantity.
+            </summary>
+            <value>
+            The quantity.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.FeedingModel.Unit">
+            <summary>
+            Gets or sets the unit.
+            </summary>
+            <value>
+            The unit.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.FeedingModel.Note">
+            <summary>
+            Gets or sets the note.
+            </summary>
+            <value>
+            The note.
+            </value>
+        </member>
+        <member name="T:BeeApi.Models.HarvestModel">
+            <summary>
+            Represents a Harvest Model.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Models.HarvestModel.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.HarvestModel.Date">
+            <summary>
+            Gets or sets the date.
+            </summary>
+            <value>
+            The date.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.HarvestModel.Product">
+            <summary>
+            Gets or sets the product.
+            </summary>
+            <value>
+            The product.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.HarvestModel.Quantity">
+            <summary>
+            Gets or sets the quantity.
+            </summary>
+            <value>
+            The quantity.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.HarvestModel.Unit">
+            <summary>
+            Gets or sets the unit.
+            </summary>
+            <value>
+            The unit.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.HarvestModel.Note">
+            <summary>
+            Gets or sets the note.
+            </summary>
+            <value>
+            The note.
+            </value>
+        </member>
+        <member name="T:BeeApi.Models.HiveModel">
+            <summary>
+            Represents a Hive Model.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Models.HiveModel.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.HiveModel.Date">
+            <summary>
+            Gets or sets the date.
+            </summary>
+            <value>
+            The date.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.HiveModel.Status">
+            <summary>
+            Gets or sets the status.
+            </summary>
+            <value>
+              <c>true</c> if status; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.HiveModel.Type">
+            <summary>
+            Gets or sets the type.
+            </summary>
+            <value>
+            The type.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.HiveModel.Note">
+            <summary>
+            Gets or sets the note.
+            </summary>
+            <value>
+            The note.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.HiveModel.Family">
+            <summary>
+            Gets or sets the family.
+            </summary>
+            <value>
+            The family.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.HiveModel.FamilyOrigin">
+            <summary>
+            Gets or sets the family origin.
+            </summary>
+            <value>
+            The family origin.
+            </value>
+        </member>
+        <member name="T:BeeApi.Models.InspectionModel">
+            <summary>
+            Represents an Inspection Model.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Models.InspectionModel.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.InspectionModel.Date">
+            <summary>
+            Gets or sets the date.
+            </summary>
+            <value>
+            The date.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.InspectionModel.Strength">
+            <summary>
+            Gets or sets the strength.
+            </summary>
+            <value>
+            The strength.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.InspectionModel.Temper">
+            <summary>
+            Gets or sets the temper.
+            </summary>
+            <value>
+            The temper.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.InspectionModel.Disease">
+            <summary>
+            Gets or sets the disease.
+            </summary>
+            <value>
+            The disease.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.InspectionModel.FramesBees">
+            <summary>
+            Gets or sets the frames bees.
+            </summary>
+            <value>
+            The frames bees.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.InspectionModel.FramesHoney">
+            <summary>
+            Gets or sets the frames honey.
+            </summary>
+            <value>
+            The frames honey.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.InspectionModel.FramesHoneySupers">
+            <summary>
+            Gets or sets the frames honey supers.
+            </summary>
+            <value>
+            The frames honey supers.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.InspectionModel.Drones">
+            <summary>
+            Gets or sets a value indicating whether this <see /> is drones.
+            </summary>
+            <value>
+              <c>true</c> if drones; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.InspectionModel.DroneCells">
+            <summary>
+            Gets or sets a value indicating whether [drone cells].
+            </summary>
+            <value>
+              <c>true</c> if [drone cells]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:BeeApi.Models.QueenModel">
+            <summary>
+            Represents a Queen Model.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Models.QueenModel.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.QueenModel.Date">
+            <summary>
+            Gets or sets the date.
+            </summary>
+            <value>
+            The date.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.QueenModel.Breed">
+            <summary>
+            Gets or sets the breed.
+            </summary>
+            <value>
+            The breed.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.QueenModel.Colour">
+            <summary>
+            Gets or sets the colour.
+            </summary>
+            <value>
+            The colour.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.QueenModel.State">
+            <summary>
+            Gets or sets the state.
+            </summary>
+            <value>
+            The state.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.QueenModel.Status">
+            <summary>
+            Gets or sets the status.
+            </summary>
+            <value>
+            The status.
+            </value>
+        </member>
+        <member name="T:BeeApi.Models.WorkModel">
+            <summary>
+            Represents a Work Model.
+            </summary>
+        </member>
+        <member name="P:BeeApi.Models.WorkModel.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.WorkModel.Date">
+            <summary>
+            Gets or sets the date.
+            </summary>
+            <value>
+            The date.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.WorkModel.Note">
+            <summary>
+            Gets or sets the note.
+            </summary>
+            <value>
+            The note.
+            </value>
+        </member>
+        <member name="P:BeeApi.Models.WorkModel.IsCompleted">
+            <summary>
+            Gets or sets a value indicating whether this instance is completed.
+            </summary>
+            <value>
+              <c>true</c> if this instance is completed; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:BeeApi.Providers.CustomJwtFormat">
+            <summary>
+            Represents a custom JWT Format.
+            </summary>
+            <seealso />
+        </member>
+        <member name="M:BeeApi.Providers.CustomJwtFormat.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BeeApi.Providers.CustomJwtFormat"/> class.
+            </summary>
+            <param name="issuer">The issuer.</param>
+        </member>
+        <member name="M:BeeApi.Providers.CustomJwtFormat.Protect(Microsoft.Owin.Security.AuthenticationTicket)">
+            <summary>
+            Protects the specified data.
+            </summary>
+            <param name="data">The data.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">data</exception>
+        </member>
+        <member name="T:BeeApi.Providers.CustomOAuthProvider">
+            <summary>
+            Represents a Custom OAuth Provider.
+            </summary>
+            <seealso cref="T:Microsoft.Owin.Security.OAuth.OAuthAuthorizationServerProvider" />
+        </member>
+        <member name="M:BeeApi.Providers.CustomOAuthProvider.ValidateClientAuthentication(Microsoft.Owin.Security.OAuth.OAuthValidateClientAuthenticationContext)">
+            <summary>
+            Called to validate that the origin of the request is a registered "client_id", and that the correct credentials for that client are
+            present on the request. If the web application accepts Basic authentication credentials,
+            context.TryGetBasicCredentials(out clientId, out clientSecret) may be called to acquire those values if present in the request header. If the web
+            application accepts "client_id" and "client_secret" as form encoded POST parameters,
+            context.TryGetFormCredentials(out clientId, out clientSecret) may be called to acquire those values if present in the request body.
+            If context.Validated is not called the request will not proceed further.
+            </summary>
+            <param name="context">The context of the event carries information in and results out.</param>
+            <returns>
+            Task to enable asynchronous execution
+            </returns>
+        </member>
+        <member name="M:BeeApi.Providers.CustomOAuthProvider.GrantResourceOwnerCredentials(Microsoft.Owin.Security.OAuth.OAuthGrantResourceOwnerCredentialsContext)">
+            <summary>
+            Called when a request to the Token endpoint arrives with a "grant_type" of "password". This occurs when the user has provided name and password
+            credentials directly into the client application's user interface, and the client application is using those to acquire an "access_token" and
+            optional "refresh_token". If the web application supports the
+            resource owner credentials grant type it must validate the context.Username and context.Password as appropriate. To issue an
+            access token the context.Validated must be called with a new ticket containing the claims about the resource owner which should be associated
+            with the access token. The application should take appropriate measures to ensure that the endpoint isn’t abused by malicious callers.
+            The default behavior is to reject this grant type.
+            See also http://tools.ietf.org/html/rfc6749#section-4.3.2
+            </summary>
+            <param name="context">The context of the event carries information in and results out.</param>
+            <returns>
+            Task to enable asynchronous execution
+            </returns>
+        </member>
+        <member name="T:BeeApi.Startup">
+            <summary>
+            Defines Startup class.
+            </summary>
+        </member>
+        <member name="F:BeeApi.Startup.HttpConfig">
+            <summary>
+            HttpConfiguration
+            </summary>
+        </member>
+        <member name="M:BeeApi.Startup.Configuration(Owin.IAppBuilder)">
+            <summary>
+            Configurations the specified application.
+            </summary>
+            <param name="app">The application.</param>
+        </member>
+        <member name="M:BeeApi.Startup.ConfigureOAuthTokenGeneration(Owin.IAppBuilder)">
+            <summary>
+            Configures the o authentication token generation.
+            </summary>
+            <param name="app">The application.</param>
+        </member>
+        <member name="M:BeeApi.Startup.ConfigureOAuthTokenConsumption(Owin.IAppBuilder)">
+            <summary>
+            Configures the o authentication token consumption.
+            </summary>
+            <param name="app">The application.</param>
+        </member>
+        <member name="M:BeeApi.Startup.ConfigureWebApi(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Configures the web API.
+            </summary>
+            <param name="config">The configuration.</param>
+        </member>
+    </members>
+</doc>

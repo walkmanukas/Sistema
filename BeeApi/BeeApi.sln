@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeeApi", "BeeApi\BeeApi.csproj", "{C845526A-F2F7-4220-9734-01C88A905ED0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C845526A-F2F7-4220-9734-01C88A905ED0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C845526A-F2F7-4220-9734-01C88A905ED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C845526A-F2F7-4220-9734-01C88A905ED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C845526A-F2F7-4220-9734-01C88A905ED0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {806F705C-279B-4D51-9733-86A7567DEBFE}
+	EndGlobalSection
+EndGlobal
